@@ -27,6 +27,7 @@ class CustomSnackBar extends StatefulWidget {
     this.borderRadius = kDefaultBorderRadius,
     this.textScaleFactor = 1.0,
     this.textAlign = TextAlign.center,
+     this.height = 40,
   }) : super(key: key);
 
   const CustomSnackBar.info({
@@ -52,6 +53,7 @@ class CustomSnackBar extends StatefulWidget {
     this.borderRadius = kDefaultBorderRadius,
     this.textScaleFactor = 1.0,
     this.textAlign = TextAlign.center,
+     this.height = 40,
   }) : super(key: key);
 
   const CustomSnackBar.error({
@@ -77,6 +79,7 @@ class CustomSnackBar extends StatefulWidget {
     this.borderRadius = kDefaultBorderRadius,
     this.textScaleFactor = 1.0,
     this.textAlign = TextAlign.center,
+     this.height = 40,
   }) : super(key: key);
 
   final String message;
@@ -92,6 +95,7 @@ class CustomSnackBar extends StatefulWidget {
   final EdgeInsetsGeometry messagePadding;
   final double textScaleFactor;
   final TextAlign textAlign;
+  final double height;
 
   @override
   CustomSnackBarState createState() => CustomSnackBarState();
@@ -103,7 +107,7 @@ class CustomSnackBarState extends State<CustomSnackBar> {
     final theme = Theme.of(context);
     return Container(
       clipBehavior: Clip.hardEdge,
-      height: 80,
+       height: widget.height,
       decoration: BoxDecoration(
         color: widget.backgroundColor,
         borderRadius: widget.borderRadius,
@@ -116,7 +120,7 @@ class CustomSnackBarState extends State<CustomSnackBar> {
             top: widget.iconPositionTop,
             left: widget.iconPositionLeft,
             child: SizedBox(
-              height: 95,
+               height: widget.height,
               child: Transform.rotate(
                 angle: widget.iconRotationAngle * pi / 180,
                 child: widget.icon,
